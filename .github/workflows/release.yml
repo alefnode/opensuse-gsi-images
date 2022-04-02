@@ -84,7 +84,7 @@ jobs:
         run: wget -P data/ https://download.opensuse.org/repositories/home:/alefnode:/GSI-Phone/images/openSUSE-Tumbleweed-ARM-PHOSH.aarch64-gsi-volla-yggdrasil.aarch64.tar.xz
 
       - name: Create ZIP file to flash with Recovery
-        run: zip -r /tmp/build-results/openSUSE-Tumbleweed-ARM-PHOSH.aarch64-gsi-volla-yggdrasil.aarch64-${{ env.release_suffix }}.zip *
+        run: zip -r /tmp/build-results/openSUSE-Tumbleweed-ARM-PHOSH.aarch64-gsi-volla-yggdrasil.aarch64${{ env.release_suffix }}.zip *
 
       - name: Upload Rootfs image
         id: upload-rootfs
@@ -93,6 +93,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.once.outputs.upload_url }}
-          asset_path: /tmp/build-results/openSUSE-Tumbleweed-ARM-PHOSH.aarch64-gsi-volla-yggdrasil.aarch64-${{ env.release_suffix }}.zip
-          asset_name: openSUSE-Tumbleweed-ARM-PHOSH.aarch64-gsi-volla-yggdrasil.aarch64-${{ env.release_suffix }}.zip
+          asset_path: /tmp/build-results/openSUSE-Tumbleweed-ARM-PHOSH.aarch64-gsi-volla-yggdrasil.aarch64${{ env.release_suffix }}.zip
+          asset_name: openSUSE-Tumbleweed-ARM-PHOSH.aarch64-gsi-volla-yggdrasil.aarch64${{ env.release_suffix }}.zip
           asset_content_type: application/gzip
